@@ -1,17 +1,14 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { clearCart } from "../features/cart/cartSlice";
 import { cancel } from "../features/modal/modalSlice";
 
 const Modal = () => {
     let dispatch = useDispatch()
-    let {show} = useSelector(state=> state.modal)
 
     function confirm() {
         dispatch(cancel())
         dispatch(clearCart())
     }
-
-    if(!show) return null
 
     return (
       <aside className='modal-container'>
