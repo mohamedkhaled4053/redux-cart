@@ -6,7 +6,7 @@ import { useEffect } from 'react';
 import { getCartItems } from './features/cart/cartSlice';
 
 function App() {
-  let { modal:{show}, cart:{isLoading} } = useSelector((state) => state);
+  let { modal:{show}, cart:{isLoading,error} } = useSelector((state) => state);
   let dispatch = useDispatch()
 
   useEffect(()=>{
@@ -16,6 +16,12 @@ function App() {
   if(isLoading){
     return <div className="loading">
       <h2>loading ...</h2>
+    </div>
+  }
+  if(error){
+    return <div className="loading">
+      <h2>error ...</h2>
+      <button onClick={()=>dispatch(getCartItems())}> try again</button>
     </div>
   }
 
