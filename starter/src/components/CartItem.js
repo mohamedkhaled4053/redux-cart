@@ -13,7 +13,7 @@ const CartItem = ({ id, img, title, price, amount }) => {
       dispatch(toggleAmount({ id, type: 'dec' }));
     }
   }
-  
+
   return (
     <article className="cart-item">
       <img src={img} alt={title} />

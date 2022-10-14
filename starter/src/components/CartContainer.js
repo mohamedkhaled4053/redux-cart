@@ -6,25 +6,25 @@ import { showModal } from '../features/modal/modalSlice';
 
 const CartContainer = () => {
   const { cartItems, total, amount } = useSelector((state) => state.cart);
-  let dispatch = useDispatch()
+  let dispatch = useDispatch();
 
-    React.useEffect(()=>{
-        dispatch(calcTotals())
-    })
-  
+  React.useEffect(() => {
+    dispatch(calcTotals());
+  });
+
   if (amount < 1) {
     return (
-      <section className='cart'>
+      <section className="cart">
         {/* cart header */}
         <header>
           <h2>your bag</h2>
-          <h4 className='empty-cart'>is currently empty</h4>
+          <h4 className="empty-cart">is currently empty</h4>
         </header>
       </section>
     );
   }
   return (
-    <section className='cart'>
+    <section className="cart">
       {/* cart header */}
       <header>
         <h2>your bag</h2>
@@ -38,12 +38,14 @@ const CartContainer = () => {
       {/* cart footer */}
       <footer>
         <hr />
-        <div className='cart-total' >
+        <div className="cart-total">
           <h4>
             total <span>${total.toFixed(2)}</span>
           </h4>
         </div>
-        <button className='btn clear-btn' onClick={()=>dispatch(showModal())}>clear cart</button>
+        <button className="btn clear-btn" onClick={() => dispatch(showModal())}>
+          clear cart
+        </button>
       </footer>
     </section>
   );

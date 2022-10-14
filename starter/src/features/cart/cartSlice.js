@@ -32,15 +32,22 @@ let cartSlice = createSlice({
         return item;
       });
     },
-    calcTotals: (state)=>{
-      let amount = state.cartItems.reduce((total, item)=> total += item.amount , 0)
-      let total = state.cartItems.reduce((total, item)=> total += item.price* item.amount , 0)
+    calcTotals: (state) => {
+      let amount = state.cartItems.reduce(
+        (total, item) => (total += item.amount),
+        0
+      );
+      let total = state.cartItems.reduce(
+        (total, item) => (total += item.price * item.amount),
+        0
+      );
 
-      state.amount = amount
-      state.total = total
-    }
+      state.amount = amount;
+      state.total = total;
+    },
   },
 });
 
-export const { clearCart, removeItem, toggleAmount, calcTotals } = cartSlice.actions;
+export const { clearCart, removeItem, toggleAmount, calcTotals } =
+  cartSlice.actions;
 export default cartSlice.reducer;

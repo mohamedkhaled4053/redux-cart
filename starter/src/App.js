@@ -4,10 +4,10 @@ import Navbar from './components/Navbar';
 import { useSelector } from 'react-redux';
 
 function App() {
-  let {show} = useSelector(state=> state.modal)
+  let { show } = useSelector((state) => state.modal);
   return (
     <>
-      {show &&  <Modal />}
+      {show && <Modal />}
       <Navbar />
       <CartContainer />
     </>
